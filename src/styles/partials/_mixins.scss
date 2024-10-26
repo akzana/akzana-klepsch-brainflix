@@ -1,5 +1,5 @@
-@use "_variables" as *;
-@use "_typography" as *;
+@use "variables" as *;
+@use "typography" as *;
 
 // Breakpoints
 @mixin tablet-screen {
@@ -11,5 +11,103 @@
 @mixin desktop-screen {
     @media screen and (min-width: $desktop-breakpoint) {
         @content;
+    }
+}
+
+// Fonts
+@mixin black-bold-font {
+    color: $brainflix-dark-black;
+    font-weight: 700;
+}
+
+@mixin black-regular-font {
+    color: $brainflix-dark-black;
+    font-weight: 400;
+}
+
+@mixin page-header-font {
+    @include black-bold-font;
+    font-size: 1.5rem;
+    line-height: 2rem;
+
+    @include tablet-screen {
+        font-size: 2.0625rem;
+        line-height: 2.75rem;
+    }
+}
+
+@mixin section-header-font {
+    @include black-bold-font;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+}
+
+@mixin subheader-font {
+    @include black-bold-font;
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+
+    @include tablet-screen {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+@mixin body-copy-font {
+    @include black-regular-font;
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+
+    @include tablet-screen {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+@mixin labels-buttons-font {
+    @include black-bold-font;
+    font-size: 0.625rem;
+    line-height: 1.25rem;
+
+    @include tablet-screen {
+        font-size: 0.75rem;
+    }
+}
+
+// Styling
+@mixin cta-button-style {
+    border-radius: 0.25rem;
+    width: 100vw;
+
+    @include tablet-screen {
+        min-width: 9.375rem;
+        padding: 0 2rem;
+    }
+}
+
+@mixin form-field-style {
+    height: 2.25rem;
+    min-width: 240px;
+    width: 100vw;
+    border: 0.0625rem solid $mercury;
+    border-radius: 0.25rem;
+    &:active{
+        border: 0.125rem solid $brainflix-blue;        
+    }
+    &:required {
+        border: 0.0625rem solid $brainflix-error;
+    }
+
+    @include tablet-screen {
+        height: 2.5rem;
+    }
+}
+
+@mixin avatar-style {
+    border-radius: 50%;
+    width: 2.25rem;
+    height: 2.25rem;
+    &--default{
+        background-color: $mercury;
     }
 }
