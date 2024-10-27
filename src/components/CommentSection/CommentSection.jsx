@@ -1,5 +1,5 @@
 import React from 'react';
-import "CommentSection.scss";
+import "./CommentSection.scss";
 
 export default function CommentSection() {
     return (

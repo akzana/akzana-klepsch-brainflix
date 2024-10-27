@@ -11,21 +11,28 @@ import VideoList from './components/VideoList/VideoList';
 
 
 export default function App() {
-  console.log(videoDetails.video);
+  console.log(videoDetails);
   
   const [onscreenVideo, setOnscreenVideo] = useState(videoDetails[0]);
 
   const handleSelectVideo = (clickedVideoID) => {
-    const slctVideo = videoDetails.find((video) => clickedVideoID === video.id);
-    setOnscreenVideo(slctVideo)
+    const selectVideo = videoDetails.find((video) => clickedVideoID === video.id);
+    setOnscreenVideo(selectVideo)
   }
+
+
+
+  const filterVideoList = videoDetails.filter((video) => video.id !== onscreenVideo.id);
+
+  console.log(onscreenVideo);
   
+
 
   return (
     <>
       <Header />
-      <VideoPlayer videoURL={onscreenVideo.video} />
-      <VideoInfo />
+      <VideoPlayer videoURL={onscreenVideo.video} poster={onscreenVideo.image}/>
+      <VideoInfo videoInfoObj={onscreenVideo} />
       <CommentForm />
       <CommentSection />
       <VideoList filterVideoList = {filterVideoList} selectVideo={handleSelectVideo} />
