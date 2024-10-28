@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import videoDetails from "./data/video-details.json";
+import "./App.scss";
+import Header from './components/Header/Header';
+import VideoPlayer from './components/VideoPlayer/VideoPlayer';
+import VideoInfo from './components/VideoInfo/VideoInfo';
+import CommentForm from './components/CommentForm/CommentForm';
+import CommentSection from './components/CommentSection/CommentSection';
+import VideoList from './components/VideoList/VideoList';
 
-function App() {
-  const [count, setCount] = useState(0)
+
+export default function App() {
+
+  const [onscreenVideo, setOnscreenVideo] = useState(videoDetails[0]);
+
+  const handleSelectVideo = (clickedVideoID => {
+    const selectVideo = videoDetails.find((video) => clickedVideoID === video.id);
+    setOnscreenVideo(selectVideo);
+  })
+
+  const changeActiveVideo = (id) => {
+    setActiveVideo(id)
+  }
+
+  const filterVideoList = videoDetails.filter((video) => video.id !== onscreenVideo.id);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <VideoPlayer videoURL={onscreenVideo.video} poster={onscreenVideo.image} />
+      <VideoInfo videoInfoObj={onscreenVideo} />
+      <CommentForm />
+      <CommentSection commentArray={onscreenVideo.comments} />
+      <VideoList filterVideoList={filterVideoList} handleSelectVideo={handleSelectVideo} />
     </>
   )
 }
-
-export default App

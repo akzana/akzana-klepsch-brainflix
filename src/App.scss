@@ -1,0 +1,16 @@
+@use "/src/styles/partials/mixins" as *;
+@use "/src/styles/partials/variables" as *;
+@use "/src/styles/partials/typography" as *;
+
+body {
+    font-family: "Avenir Next Regular";
+    @include body-copy-font;
+}
+
+li {
+    list-style: none;
+}
+
+h3 {
+    @include section-header-font;
+}

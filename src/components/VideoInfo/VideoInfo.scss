@@ -1,0 +1,22 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.video-info {
+    margin: 0 1rem;    
+    &__heading{
+        @include page-header-font;
+        border-bottom: 0.0625rem solid $silver;
+    }
+    &__container {
+        @include flex-row;
+        justify-content: space-between;
+    }
+    &__interaction-count-icon{
+        margin-right: 1rem;
+    }
+}
+
+span {
+    @include flex-row;
+}

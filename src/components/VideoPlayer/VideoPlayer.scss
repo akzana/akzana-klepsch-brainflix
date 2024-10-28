@@ -1,0 +1,10 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.video-player{
+    @include flex-row;
+    justify-content: center;
+    background-color: $brainflix-dark-black;
+    width: 100%;
+}
