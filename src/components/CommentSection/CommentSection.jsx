@@ -3,20 +3,14 @@ import CommentCard from '../CommentCard/CommentCard';
 import "./CommentSection.scss";
 
 export default function CommentSection({ commentArray }) {
-    console.log(commentArray);
-
-
-
-
-
 
     return (
         <div className='comment-section'>
             <ul className="comment-section__list">
-            {commentArray.map((comment) =>
+                {commentArray.map((comment) =>
                     <CommentCard
-                        key = {comment.id}
-                        id = {comment.id}
+                        key={comment.id}
+                        id={comment.id}
                         name={comment.name}
                         time={comment.timestamp}
                         likes={comment.likes}

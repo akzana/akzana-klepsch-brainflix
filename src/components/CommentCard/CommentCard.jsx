@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CommentCard({ likes, time, name, comment}) {
+export default function CommentCard({ likes, time, name, comment }) {
     return (
         <div>
             <li className="comment">

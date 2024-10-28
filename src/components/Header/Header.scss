@@ -2,11 +2,71 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
+.header {
+    @include tablet-screen {
+        @include flex-row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.heading {
+    @include flex-row;
+    justify-content: center;
+    margin: 1rem;
+
+    &__brainflix-icon {
+        max-width: 7.5rem;
+        max-height: 1.5625rem;
+    }
+}
+
 .header-form {
-    &__user-img{
+    @include flex-row;
+    justify-content: center;
+    width: 95vw;
+
+
+    &__container {
+        @include flex-row;
+
+        @include tablet-screen {
+            align-items: center;
+        }
+    }
+
+    &__search-bar {
+        @include form-field-style;
+        background: url("/src/assets/icons/search.svg") no-repeat scroll 0.4375rem;
+        padding-left: 1.875rem;
+    }
+
+    &__user-img {
         @include avatar-style;
     }
-    &__button{
+
+    &__button {
         @include cta-button-style;
+        background: url("/src/assets/icons/upload.svg") no-repeat scroll 0.4375rem $brainflix-blue;
+        width: 95vw;
+
+        &--tablet {
+            display: none;
+        }
+
+        @include tablet-screen {
+            &--mobile {
+                display: none;
+            }
+
+            &--tablet {
+                display: flex;
+                align-items: center;
+                @include cta-button-style;
+                background: url("/src/assets/icons/upload.svg") no-repeat scroll 0.4375rem $brainflix-blue;
+                width: 9.375rem;
+                padding: 0 2rem;
+            }
+        }
     }
 }

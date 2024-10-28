@@ -3,11 +3,19 @@
 @use "../../styles/partials/typography" as *;
 
 .comment-form {
+    @include flex-row;
+    justify-content: center;
+    &__container{
+        @include flex-column;
+    }
     &__user-img {
         @include avatar-style;
     }
 
     &__button {
         @include cta-button-style;
+    }
+    &__user-input{
+        @include form-field-style;
     }
 }

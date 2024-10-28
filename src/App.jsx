@@ -12,7 +12,6 @@ import VideoList from './components/VideoList/VideoList';
 export default function App() {
 
   const [onscreenVideo, setOnscreenVideo] = useState(videoDetails[0]);
-  const [activeVideo, setActiveVideo] = useState(null);
 
   const handleSelectVideo = (clickedVideoID => {
     const selectVideo = videoDetails.find((video) => clickedVideoID === video.id);
@@ -24,8 +23,6 @@ export default function App() {
   }
 
   const filterVideoList = videoDetails.filter((video) => video.id !== onscreenVideo.id);
-  console.log(filterVideoList);
-
 
   return (
     <>
@@ -34,7 +31,7 @@ export default function App() {
       <VideoInfo videoInfoObj={onscreenVideo} />
       <CommentForm />
       <CommentSection commentArray={onscreenVideo.comments} />
-      <VideoList filterVideoList={filterVideoList} handleSelectVideo={handleSelectVideo} changeActiveVideo={changeActiveVideo} activeVideo={activeVideo} />
+      <VideoList filterVideoList={filterVideoList} handleSelectVideo={handleSelectVideo} />
     </>
   )
 }
