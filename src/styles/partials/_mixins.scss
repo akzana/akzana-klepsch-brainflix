@@ -76,8 +76,11 @@
 
 // Styling
 @mixin cta-button-style {
+    color: $white;
     border-radius: 0.25rem;
-    width: 100vw;
+    border: none;
+    width: 100%;
+    background-color: $brainflix-blue;
 
     @include tablet-screen {
         min-width: 9.375rem;

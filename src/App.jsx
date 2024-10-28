@@ -9,33 +9,32 @@ import CommentSection from './components/CommentSection/CommentSection';
 import VideoList from './components/VideoList/VideoList';
 
 
-
 export default function App() {
-  console.log(videoDetails);
-  
-  const [onscreenVideo, setOnscreenVideo] = useState(videoDetails[0]);
 
-  const handleSelectVideo = (clickedVideoID) => {
+  const [onscreenVideo, setOnscreenVideo] = useState(videoDetails[0]);
+  const [activeVideo, setActiveVideo] = useState(null);
+
+  const handleSelectVideo = (clickedVideoID => {
     const selectVideo = videoDetails.find((video) => clickedVideoID === video.id);
-    setOnscreenVideo(selectVideo)
+    setOnscreenVideo(selectVideo);
+  })
+
+  const changeActiveVideo = (id) => {
+    setActiveVideo(id)
   }
 
-
-
   const filterVideoList = videoDetails.filter((video) => video.id !== onscreenVideo.id);
-
-  console.log(onscreenVideo);
-  
+  console.log(filterVideoList);
 
 
   return (
     <>
       <Header />
-      <VideoPlayer videoURL={onscreenVideo.video} poster={onscreenVideo.image}/>
+      <VideoPlayer videoURL={onscreenVideo.video} poster={onscreenVideo.image} />
       <VideoInfo videoInfoObj={onscreenVideo} />
       <CommentForm />
-      <CommentSection />
-      <VideoList filterVideoList = {filterVideoList} selectVideo={handleSelectVideo} />
+      <CommentSection commentArray={onscreenVideo.comments} />
+      <VideoList filterVideoList={filterVideoList} handleSelectVideo={handleSelectVideo} changeActiveVideo={changeActiveVideo} activeVideo={activeVideo} />
     </>
   )
 }

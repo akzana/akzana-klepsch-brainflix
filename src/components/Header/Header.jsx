@@ -10,9 +10,10 @@ export default function Header() {
                 </a>
             </div>
             <div className="header-form">
-                <form type="submit" className="header-form__container">
+                <form type="submit" className="header-form__form">
                     <input id="search" type="text" placeholder='Search' className="header-form__search-bar" />
                     <img src="src\assets\images\Mohan-muruge.jpg" alt="user-image" className="header-form__user-img" />
+                    <button className="header-form__button">Upload</button>
                 </form>
             </div>
         </div>

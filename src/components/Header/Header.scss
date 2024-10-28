@@ -6,4 +6,7 @@
     &__user-img{
         @include avatar-style;
     }
+    &__button{
+        @include cta-button-style;
+    }
 }
