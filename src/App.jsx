@@ -7,6 +7,7 @@ import VideoInfo from './components/VideoInfo/VideoInfo';
 import CommentForm from './components/CommentForm/CommentForm';
 import CommentSection from './components/CommentSection/CommentSection';
 import VideoList from './components/VideoList/VideoList';
+import { BrowserRouter } from 'react-router-dom';
 
 
 export default function App() {
@@ -25,13 +26,20 @@ export default function App() {
   const filterVideoList = videoDetails.filter((video) => video.id !== onscreenVideo.id);
 
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <VideoPlayer videoURL={onscreenVideo.video} poster={onscreenVideo.image} />
-      <VideoInfo videoInfoObj={onscreenVideo} />
-      <CommentForm />
-      <CommentSection commentArray={onscreenVideo.comments} />
-      <VideoList filterVideoList={filterVideoList} handleSelectVideo={handleSelectVideo} />
-    </>
+      <Routes>
+        <Route>
+
+        </Route>
+        <VideoPlayer videoURL={onscreenVideo.video} poster={onscreenVideo.image} />
+        <VideoInfo videoInfoObj={onscreenVideo} />
+        <CommentForm />
+        <CommentSection commentArray={onscreenVideo.comments} />
+        <VideoList filterVideoList={filterVideoList} handleSelectVideo={handleSelectVideo} />
+
+      </Routes>
+
+    </BrowserRouter>
   )
 }
