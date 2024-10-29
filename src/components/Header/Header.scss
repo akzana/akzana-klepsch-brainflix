@@ -3,6 +3,7 @@
 @use "../../styles/partials/typography" as *;
 
 .header {
+    margin-bottom: 1rem;
     @include tablet-screen {
         @include flex-row;
         justify-content: space-between;
@@ -26,9 +27,15 @@
     justify-content: center;
     width: 95vw;
 
+    @include tablet-screen {
+        justify-content: flex-end;
+    }
+
 
     &__container {
         @include flex-row;
+        justify-content: flex-end;
+        align-items: center;
 
         @include tablet-screen {
             align-items: center;
@@ -37,12 +44,14 @@
 
     &__search-bar {
         @include form-field-style;
+        width: 95%;
         background: url("/src/assets/icons/search.svg") no-repeat scroll 0.4375rem;
         padding-left: 1.875rem;
     }
 
     &__user-img {
         @include avatar-style;
+        margin-left: 1rem;
     }
 
     &__button {
