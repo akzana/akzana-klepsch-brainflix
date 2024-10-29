@@ -3,6 +3,10 @@
 @use "../../styles/partials/typography" as *;
 
 .header {
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+
     margin-bottom: 1rem;
     @include tablet-screen {
         @include flex-row;
@@ -29,6 +33,11 @@
 
     @include tablet-screen {
         justify-content: flex-end;
+    }
+
+    &__form{
+        @include flex-column;
+
     }
 
 
@@ -74,7 +83,7 @@
                 @include cta-button-style;
                 background: url("/src/assets/icons/upload.svg") no-repeat scroll 0.4375rem $brainflix-blue;
                 width: 9.375rem;
-                padding: 0 2rem;
+                margin: 0 2rem;
             }
         }
     }

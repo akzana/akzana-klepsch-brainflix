@@ -3,8 +3,10 @@
 @use "/src/styles/partials/typography" as *;
 
 body {
+    display: flex;
     font-family: "Avenir Next Regular";
     @include body-copy-font;
+    margin: 0;
 }
 
 li {

@@ -5,6 +5,10 @@
 .comment-form {
     @include flex-row;
     justify-content: center;
+    &__form {
+        @include flex-row;
+        justify-content: center;
+    }
     &__container{
         @include flex-column;
     }
