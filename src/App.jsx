@@ -7,7 +7,7 @@ import VideoInfo from './components/VideoInfo/VideoInfo';
 import CommentForm from './components/CommentForm/CommentForm';
 import CommentSection from './components/CommentSection/CommentSection';
 import VideoList from './components/VideoList/VideoList';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 export default function App() {
@@ -19,27 +19,35 @@ export default function App() {
     setOnscreenVideo(selectVideo);
   })
 
-  const changeActiveVideo = (id) => {
-    setActiveVideo(id)
-  }
-
   const filterVideoList = videoDetails.filter((video) => video.id !== onscreenVideo.id);
 
   return (
-    <BrowserRouter>
+    <>
       <Header />
-      <Routes>
-        <Route>
 
-        </Route>
-        <VideoPlayer videoURL={onscreenVideo.video} poster={onscreenVideo.image} />
-        <VideoInfo videoInfoObj={onscreenVideo} />
-        <CommentForm />
-        <CommentSection commentArray={onscreenVideo.comments} />
-        <VideoList filterVideoList={filterVideoList} handleSelectVideo={handleSelectVideo} />
 
-      </Routes>
+      <VideoPlayer
+        videoURL={onscreenVideo.video}
+        poster={onscreenVideo.image} />
 
-    </BrowserRouter>
+
+      <VideoInfo
+        videoInfoObj={onscreenVideo} />
+
+
+      <CommentForm />
+
+
+
+      <CommentSection
+        commentArray={onscreenVideo.comments} />
+
+
+
+      <VideoList
+        filterVideoList={filterVideoList}
+        handleSelectVideo={handleSelectVideo} />
+    </>
+
   )
 }
