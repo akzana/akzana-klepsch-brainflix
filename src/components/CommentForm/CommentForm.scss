@@ -5,21 +5,48 @@
 .comment-form {
     @include flex-row;
     justify-content: center;
+
     &__form {
-        @include flex-row;
-        justify-content: center;
-    }
-    &__container{
         @include flex-column;
+        justify-content: center;
+        width: 80vw;
+
+        @include tablet-screen {
+            @include flex-row;
+        }
     }
+
+    &__container {
+        @include flex-row;
+        justify-content: start;
+    }
+
     &__user-img {
         @include avatar-style;
+        margin: 1rem;
+    }
+
+
+    &__input-label {
+        @include section-header-font;
+    }
+
+    &__user-input {
+        @include form-field-style;
+        min-height: 4.5rem;
+        width: 100%;
+        border: 0.25rem;
+        background-color: $alabaster;
     }
 
     &__button {
         @include cta-button-style;
-    }
-    &__user-input{
-        @include form-field-style;
+        margin: 1rem 4rem;
+        width: 65vw;
+        background: url("/src/assets/icons/add_comment.svg") no-repeat scroll 0.4375rem $brainflix-blue;
+        @include tablet-screen {
+            margin: 0;
+            align-self: center;
+        }
     }
 }
