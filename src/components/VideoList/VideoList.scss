@@ -3,9 +3,26 @@
 @use "../../styles/partials/typography" as *;
 
 .video-list-item {
+    @include flex-row;
     list-style: none;
+    @include desktop-screen {
+        padding-left: 2rem;
+        border-left: 0.0625rem solid $silver;
+    }
 
     &__img {
-        width: 100px;
+        height: 6.25rem;
+        border-radius: 0.25rem;
+    }
+
+    &__video-title {
+        font-weight: bold;
+    }
+
+    &__video-channel {
+        font-weight: light;
+    }
+    &__video-info {
+        margin: 0 0 3rem 1rem;
     }
 }

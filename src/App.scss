@@ -3,7 +3,7 @@
 @use "/src/styles/partials/typography" as *;
 
 body {
-    display: flex;
+    @include flex-column;
     font-family: "Avenir Next Regular";
     @include body-copy-font;
     margin: 0;
@@ -15,4 +15,15 @@ li {
 
 h3 {
     @include section-header-font;
+}
+
+.body-container {
+    @include desktop-screen {
+        @include flex-row;
+
+        &__inner {
+            width: 60vw;
+
+        }
+    }
 }

@@ -94,7 +94,8 @@
     width: 100%;
     margin: 1rem 0;
     background-color: $brainflix-blue;
-    &:hover{
+
+    &:hover {
         background-color: $brainflix-dark-blue;
     }
 
@@ -129,7 +130,8 @@
     width: 2.25rem;
     height: 2.25rem;
     object-fit: cover;
-    @include tablet-screen{
+
+    @include tablet-screen {
         width: 2.5rem;
         height: 2.5rem;
     }

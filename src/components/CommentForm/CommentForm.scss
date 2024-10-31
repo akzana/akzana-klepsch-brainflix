@@ -7,14 +7,24 @@
     justify-content: center;
     width: 95vw;
 
+    @include desktop-screen {
+        width: 59vw;
+        justify-content: space-between;
+    }
+
     &__form {
         @include flex-column;
         justify-content: center;
         width: 80vw;
 
+
         @include tablet-screen {
             @include flex-row;
             justify-content: space-evenly;
+
+            @include desktop-screen {
+                justify-content: space-between;
+            }
         }
     }
 
@@ -27,7 +37,6 @@
         @include avatar-style;
         margin: 1rem;
     }
-
 
     &__input-label {
         @include section-header-font;

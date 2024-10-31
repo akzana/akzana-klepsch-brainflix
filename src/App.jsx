@@ -30,23 +30,24 @@ export default function App() {
         videoURL={onscreenVideo.video}
         poster={onscreenVideo.image} />
 
+      <div className="body-container">
 
-      <VideoInfo
-        videoInfoObj={onscreenVideo} />
+        <div className="body-container__inner">
 
+          <VideoInfo
+            videoInfoObj={onscreenVideo} />
 
-      <CommentForm />
+          <CommentForm />
 
+          <CommentSection
+            commentArray={onscreenVideo.comments} />
+        </div>
 
+        <VideoList
+          filterVideoList={filterVideoList}
+          handleSelectVideo={handleSelectVideo} />
+      </div>
 
-      <CommentSection
-        commentArray={onscreenVideo.comments} />
-
-
-
-      <VideoList
-        filterVideoList={filterVideoList}
-        handleSelectVideo={handleSelectVideo} />
     </>
 
   )
