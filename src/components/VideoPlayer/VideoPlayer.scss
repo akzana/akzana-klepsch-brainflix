@@ -12,6 +12,7 @@
         object-fit: cover;
         position: relative;
         width: 100vw;
+
         @include desktop-screen {
             width: 60vw;
         }

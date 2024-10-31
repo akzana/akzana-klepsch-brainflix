@@ -6,8 +6,9 @@
     @include flex-column;
     align-items: center;
     justify-content: center;
-
     margin-bottom: 1rem;
+    width: 95vw;
+
     @include tablet-screen {
         @include flex-row;
         justify-content: space-between;
@@ -35,7 +36,7 @@
         justify-content: flex-end;
     }
 
-    &__form{
+    &__form {
         @include flex-column;
 
     }

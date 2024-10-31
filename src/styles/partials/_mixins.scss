@@ -129,6 +129,10 @@
     width: 2.25rem;
     height: 2.25rem;
     object-fit: cover;
+    @include tablet-screen{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
 
     &--default {
         background-color: $mercury;

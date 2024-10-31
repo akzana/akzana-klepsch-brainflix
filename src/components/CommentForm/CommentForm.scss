@@ -5,6 +5,7 @@
 .comment-form {
     @include flex-row;
     justify-content: center;
+    width: 95vw;
 
     &__form {
         @include flex-column;
@@ -45,6 +46,7 @@
         margin: 1rem 4rem;
         width: 65vw;
         background: url("/src/assets/icons/add_comment.svg") no-repeat scroll 0.4375rem $brainflix-blue;
+
         @include tablet-screen {
             margin: 0;
             align-self: center;

@@ -2,9 +2,10 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.video-list-item{
+.video-list-item {
     list-style: none;
-    &__img{
+
+    &__img {
         width: 100px;
     }
 }

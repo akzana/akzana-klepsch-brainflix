@@ -17,8 +17,10 @@
         border-bottom: 0.0625rem solid $silver;
 
         @include tablet-screen {
+            width: 95vw;
             border-top: 0;
             justify-content: space-between;
+            gap: 0;
         }
     }
 
@@ -35,7 +37,6 @@
             @include flex-row;
             gap: 2rem;
         }
-
     }
 
     &__interaction-count,
@@ -46,9 +47,12 @@
     &__interaction-count-icon {
         margin-right: 1rem;
     }
+
+    &__description {
+        width: 95vw;
+    }
 }
 
 span {
     @include flex-row;
-
 }

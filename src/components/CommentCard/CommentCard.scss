@@ -2,4 +2,37 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-// file might be deleted
+.comment {
+    margin-bottom: 1rem;
+    border-top: 1px solid $mercury;
+}
+
+.comment {
+    @include flex-row;
+
+    &__img {
+        @include avatar-style;
+        margin: 1rem 1rem;
+    }
+
+    &__container {
+        @include flex-column;
+    }
+
+    &__name {
+        font-weight: bold;
+    }
+
+    &__time {
+        color: $silver;
+    }
+
+    &__channel-info {
+        @include flex-row;
+        justify-content: space-between;
+    }
+
+    &__comment {
+        margin: 0;
+    }
+}
