@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
-import videoDetails from "./data/video-details.json";
-
-import VideoPlayer from './components/VideoPlayer/VideoPlayer';
-import VideoInfo from './components/VideoInfo/VideoInfo';
-import CommentForm from './components/CommentForm/CommentForm';
-import CommentSection from './components/CommentSection/CommentSection';
-import VideoList from './components/VideoList/VideoList';
+import "./HomePage.scss"
+import videoDetails from "../../data/video-details.json";
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
+import VideoInfo from '../../components/VideoInfo/VideoInfo';
+import CommentForm from '../../components/CommentForm/CommentForm';
+import CommentSection from '../../components/CommentSection/CommentSection';
+import VideoList from '../../components/VideoList/VideoList';
 
 export default function HomePage() {
 

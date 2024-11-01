@@ -16,14 +16,3 @@ li {
 h3 {
     @include section-header-font;
 }
-
-.body-container {
-    @include desktop-screen {
-        @include flex-row;
-
-        &__inner {
-            width: 60vw;
-
-        }
-    }
-}
