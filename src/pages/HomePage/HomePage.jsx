@@ -1,48 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-import "./HomePage.scss"
-import VideoDetails from '../VideoDetailsPage/VideoDetailsPage';
-// import videoDetails from "../../data/video-details.json";
-// import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
-// import VideoInfo from '../../components/VideoInfo/VideoInfo';
-// import CommentForm from '../../components/CommentForm/CommentForm';
-// import CommentSection from '../../components/CommentSection/CommentSection';
-// import VideoList from '../../components/VideoList/VideoList';
+import "./HomePage.scss";
+import axios from 'axios';
+import VideoDetailsPage from '../VideoDetailsPage/VideoDetailsPage';
 
 export default function HomePage() {
+    const baseURL = "https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=";
+    const API_KEY = "49883973-195f-4a6b-86c1-c945da25bccf";
 
-    // const [onscreenVideo, setOnscreenVideo] = useState(videoDetails[0]);
+    const [videoDetails, setVideoDetails] = useState([]);
 
-    // const handleSelectVideo = (clickedVideoID => {
-    //     const selectVideo = videoDetails.find((video) => clickedVideoID === video.id);
-    //     setOnscreenVideo(selectVideo);
-    // })
+    async function getVideos() {
+        try {
+            const response = await axios.get(`${baseURL}${API_KEY}`);
+            console.log(response.data);
+            setVideoDetails(response.data);
+        } catch (error) {
+            console.error("Error fetching video", error)
+        }
+    }
 
-    // const filterVideoList = videoDetails.filter((video) => video.id !== onscreenVideo.id);
+    useEffect(() => { getVideos(); }, [])
+
+
+
     return (
         <div>
-            {/* <VideoPlayer
-                videoURL={onscreenVideo.video}
-                poster={onscreenVideo.image} />
-
-            <div className="body-container">
-
-                <div className="body-container__inner">
-
-                    <VideoInfo
-                        videoInfoObj={onscreenVideo} />
-
-                    <CommentForm />
-
-                    <CommentSection
-                        commentArray={onscreenVideo.comments} />
-                </div>
-
-                <VideoList
-                    filterVideoList={filterVideoList}
-                    handleSelectVideo={handleSelectVideo} />
-            </div> */}
-            <VideoDetails />
+            <VideoDet ailsPage videoDetails={videoDetails} />
         </div>
     )
 }
