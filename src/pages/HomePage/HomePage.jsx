@@ -1,26 +1,27 @@
 import React from 'react';
 import { useState } from 'react';
 import "./HomePage.scss"
-import videoDetails from "../../data/video-details.json";
-import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
-import VideoInfo from '../../components/VideoInfo/VideoInfo';
-import CommentForm from '../../components/CommentForm/CommentForm';
-import CommentSection from '../../components/CommentSection/CommentSection';
-import VideoList from '../../components/VideoList/VideoList';
+import VideoDetails from '../VideoDetails/VideoDetails';
+// import videoDetails from "../../data/video-details.json";
+// import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
+// import VideoInfo from '../../components/VideoInfo/VideoInfo';
+// import CommentForm from '../../components/CommentForm/CommentForm';
+// import CommentSection from '../../components/CommentSection/CommentSection';
+// import VideoList from '../../components/VideoList/VideoList';
 
 export default function HomePage() {
 
-    const [onscreenVideo, setOnscreenVideo] = useState(videoDetails[0]);
+    // const [onscreenVideo, setOnscreenVideo] = useState(videoDetails[0]);
 
-    const handleSelectVideo = (clickedVideoID => {
-        const selectVideo = videoDetails.find((video) => clickedVideoID === video.id);
-        setOnscreenVideo(selectVideo);
-    })
+    // const handleSelectVideo = (clickedVideoID => {
+    //     const selectVideo = videoDetails.find((video) => clickedVideoID === video.id);
+    //     setOnscreenVideo(selectVideo);
+    // })
 
-    const filterVideoList = videoDetails.filter((video) => video.id !== onscreenVideo.id);
+    // const filterVideoList = videoDetails.filter((video) => video.id !== onscreenVideo.id);
     return (
         <div>
-            <VideoPlayer
+            {/* <VideoPlayer
                 videoURL={onscreenVideo.video}
                 poster={onscreenVideo.image} />
 
@@ -40,7 +41,8 @@ export default function HomePage() {
                 <VideoList
                     filterVideoList={filterVideoList}
                     handleSelectVideo={handleSelectVideo} />
-            </div>
+            </div> */}
+            <VideoDetails />
         </div>
     )
 }

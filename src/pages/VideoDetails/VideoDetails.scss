@@ -1,0 +1,14 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.body-container {
+    @include desktop-screen {
+        @include flex-row;
+
+        &__inner {
+            width: 60vw;
+
+        }
+    }
+}

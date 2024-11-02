@@ -6,7 +6,7 @@ export default function Header() {
         <div className="header">
             <div className="heading">
                 <a href="index.html" className="heading__link">
-                    <img src="src\assets\logo\BrainFlix-logo.svg" alt="brainflix-icon" className="heading__brainflix-icon" />
+                    <img src="src\assets\logo\BrainFlix-logo.svg" alt="brainflix-logo" className="heading__brainflix-icon" />
                 </a>
             </div>
             <div className="header-form">

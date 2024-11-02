@@ -2,13 +2,15 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.body-container {
-    @include desktop-screen {
-        @include flex-row;
+// .body-container {
+//     @include desktop-screen {
+//         @include flex-row;
 
-        &__inner {
-            width: 60vw;
+//         &__inner {
+//             width: 60vw;
 
-        }
-    }
-}
+//         }
+//     }
+// }
+
+// may need to be deleted
