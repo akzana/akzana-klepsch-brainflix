@@ -26,7 +26,7 @@ export default function HomePage() {
 
     return (
         <div>
-            <VideoDet ailsPage videoDetails={videoDetails} />
+            <VideoDetailsPage videoDetails={videoDetails} />
         </div>
     )
 }
