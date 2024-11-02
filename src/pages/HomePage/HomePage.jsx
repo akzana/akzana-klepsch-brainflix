@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import "./HomePage.scss"
-import VideoDetails from '../VideoDetails/VideoDetails';
+import VideoDetails from '../VideoDetailsPage/VideoDetailsPage';
 // import videoDetails from "../../data/video-details.json";
 // import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 // import VideoInfo from '../../components/VideoInfo/VideoInfo';

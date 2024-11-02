@@ -1,4 +1,5 @@
 import React from 'react'
+import "./VideoDetailsPage.scss"
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import VideoInfo from '../../components/VideoInfo/VideoInfo';
 import CommentForm from '../../components/CommentForm/CommentForm';
