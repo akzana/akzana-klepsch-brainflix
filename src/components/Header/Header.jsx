@@ -12,7 +12,7 @@ export default function Header() {
                 <form action="submit" className="header-form__form">
                     <div className="header-form__container">
                         <input id="search" type="text" placeholder='Search' className="header-form__search-bar" />
-                        <button className="header-form__button header-form__button--tablet">Upload</button>
+                        <Link to="/upload" className="header-form__button header-form__button--tablet">Upload</Link>
                         <img src="src\assets\images\Mohan-muruge.jpg" alt="Mohan Muruge side profile" className="header-form__user-img" />
                     </div>
                     <button className="header-form__button header-form__button--mobile">Upload</button>

@@ -23,7 +23,7 @@ export default function VideoInfo({ videoInfoObj }) {
                 </div>
             </div>
             <p className="video-info__description">{videoInfoObj.description}</p>
-            {/* <p className="video-info__comment-count">{videoInfoObj.comments.length} Comments</p> */}
+            <p className="video-info__comment-count">{videoInfoObj.comments.length} Comments</p>
         </div>
     )
 }

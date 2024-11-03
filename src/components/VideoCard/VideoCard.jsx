@@ -2,12 +2,10 @@ import React from 'react';
 import "./VideoCard.scss";
 
 export default function VideoCard({ id, img,  channel, title }) {
-    const clickHandler = () => {
-        handleSelectVideo(id)
-    }
+
 
     return (
-        // <div onClick={clickHandler} >
+        <div  >                    
         
 
             <li className="video-list-item" key={id}>
@@ -18,6 +16,6 @@ export default function VideoCard({ id, img,  channel, title }) {
                 </div>
             </li>
         
-        // </div>
-    )
+        </div>
+    )                 
 }

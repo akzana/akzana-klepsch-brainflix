@@ -19,9 +19,8 @@ export default function App() {
 
         <Route path="/" element={<HomePage />} />
         <Route path="/submit" element={<Navigate to="/" />} />
-        <Route path="/video" element={<Navigate to="/" />} />
-        <Route path="/video/:videoId" element={<HomePage />} />
-
+        <Route path="/videos" element={<Navigate to="/" />} />
+        <Route path="/videos/:videoId" element={<HomePage />} />
 
         <Route path="/upload" element={<UploadPage />} />
 
