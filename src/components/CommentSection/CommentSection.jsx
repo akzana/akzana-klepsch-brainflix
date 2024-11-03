@@ -6,7 +6,7 @@ export default function CommentSection({ commentArray }) {
 
     return (
         <div className='comment-section'>
-            <ul className="comment-section__list">
+            {/* <ul className="comment-section__list">
                 {commentArray.map((comment) =>
                     <CommentCard
                         key={comment.id}
@@ -17,7 +17,7 @@ export default function CommentSection({ commentArray }) {
                         comment={comment.comment}
                     />
                 )}
-            </ul>
+            </ul> */}
         </div>
     )
 }

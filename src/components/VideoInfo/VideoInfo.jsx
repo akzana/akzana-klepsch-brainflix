@@ -2,6 +2,8 @@ import React from 'react';
 import "./VideoInfo.scss";
 
 export default function VideoInfo({ videoInfoObj }) {
+    console.log("videoInfoObj",videoInfoObj);
+    
     return (
         <div className='video-info'>
             <h1 className="video-info__heading">{videoInfoObj.title}</h1>
@@ -21,7 +23,7 @@ export default function VideoInfo({ videoInfoObj }) {
                 </div>
             </div>
             <p className="video-info__description">{videoInfoObj.description}</p>
-            <p className="video-info__comment-count">{videoInfoObj.comments.length} Comments</p>
+            {/* <p className="video-info__comment-count">{videoInfoObj.comments.length} Comments</p> */}
         </div>
     )
 }

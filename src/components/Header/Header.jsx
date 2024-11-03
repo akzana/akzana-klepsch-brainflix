@@ -1,13 +1,12 @@
 import React from 'react';
 import "./Header.scss";
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     return (
         <div className="header">
             <div className="heading">
-                <a href="index.html" className="heading__link">
-                    <img src="src\assets\logo\BrainFlix-logo.svg" alt="brainflix-logo" className="heading__brainflix-icon" />
-                </a>
+                <Link to="/"><img src="src\assets\logo\BrainFlix-logo.svg" alt="brainflix-logo" className="heading__brainflix-icon" /></Link>
             </div>
             <div className="header-form">
                 <form action="submit" className="header-form__form">

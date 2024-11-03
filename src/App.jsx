@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import VideoDetails from "./pages/VideoDetailsPage/VideoDetailsPage";
+import VideoDetailsPage from "./pages/VideoDetailsPage/VideoDetailsPage";
 
 export default function App() {
 
@@ -14,12 +14,17 @@ export default function App() {
       <Header />
 
       <Routes>
+
         <Route path="*" element={<NotFoundPage />} />
+
         <Route path="/" element={<HomePage />} />
-        <Route path="/submit" element={<HomePage />} />
+        <Route path="/submit" element={<Navigate to="/" />} />
         <Route path="/video" element={<Navigate to="/" />} />
-        <Route path="/video/:videoid" element={<VideoDetails />} />
+        <Route path="/video/:videoId" element={<HomePage />} />
+
+
         <Route path="/upload" element={<UploadPage />} />
+
       </Routes>
 
     </BrowserRouter >
