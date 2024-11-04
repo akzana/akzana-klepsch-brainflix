@@ -4,16 +4,107 @@
 
 .upload {
     @include flex-column;
-    border-top: 1px solid $mercury;
+    margin: 0 1rem;
+
     &__heading {
         @include page-header-font;
+        border-top: 1px solid $mercury;
+        padding: 2rem 0;
+
+        @include tablet-screen {
+            border-bottom: 1px solid $mercury;
+        }
     }
+
     &__video-title-label,
     &__video-description-label,
     &__thumbnail-label {
+        @include flex-column;
         @include section-header-font;
+        margin: 1rem 0 0 0;
+
+        @include desktop-screen {
+            width: 33vw;
+        }
     }
-    &__button{
+
+    &__button {
         @include cta-button-style;
+        @include flex-row;
+        justify-content: center;
+        align-items: center;
+        background: url("/src/assets/icons/publish.svg") no-repeat scroll 0.4375rem $brainflix-blue;
+        width: 95vw;
+
+        &--tablet {
+            display: none;
+        }
+
+        @include tablet-screen {
+            &--mobile {
+                display: none;
+            }
+
+            &--tablet {
+                @include flex-row;
+            }
+        }
+    }
+
+    &__video-title,
+    &__video-description {
+        @include form-field-style;
+        background-color: $alabaster;
+
+        &::placeholder {
+            text-align: start;
+        }
+    }
+
+    &__thumbnail {
+        width: 95vw;
+
+        @include desktop-screen {
+            width: 33vw;
+        }
+    }
+
+    &__video-description {
+        height: 5rem;
+    }
+
+    &__cancel-link {
+        @include flex-column;
+        align-items: center;
+        color: $brainflix-blue;
+        font-family: "Avenir Next Demi";
+        margin: 2rem;
+
+        @include tablet-screen {
+            width: 30vw;
+        }
+    }
+
+    &__interaction-container {
+        @include tablet-screen {
+            @include flex-row;
+            justify-content: end;
+            align-items: center;
+            border-top: 1px solid $mercury;
+            margin-top: 2rem;
+        }
+    }
+
+    &__inputs-container {
+        @include desktop-screen {
+            width: 33rem;
+        }
+    }
+
+    &__thumbnail-container {
+        @include desktop-screen {
+            @include flex-row;
+            justify-content: space-evenly;
+        }
     }
 }

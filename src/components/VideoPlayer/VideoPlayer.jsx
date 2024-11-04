@@ -8,7 +8,8 @@ export default function VideoPlayer({ videoURL, poster }) {
                 poster={poster}
                 controls
                 className="video-player__player"
-                width="250" type="video/webm">
+                width="250"
+                type="video/webm">
                 <source
                     src={videoURL}
                     className="video-player__source" />

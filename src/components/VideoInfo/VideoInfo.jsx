@@ -14,10 +14,18 @@ export default function VideoInfo({ videoInfoObj }) {
                 </div>
                 <div className="video-info__interaction-info">
                     <span>
-                        <img src="../../src/assets/icons/views.svg" alt="views-icon" className="video-info__interaction-count-icon" /><p className="video-info__interaction-count">{videoInfoObj.views}</p>
+                        <img
+                            src="../../src/assets/icons/views.svg"
+                            alt="views-icon"
+                            className="video-info__interaction-count-icon" />
+                        <p className="video-info__interaction-count">{videoInfoObj.views}</p>
                     </span>
                     <span>
-                        <img src="../../src/assets/icons/likes.svg" alt="likes-icon" className="video-info__interaction-count-icon" /><p className="video-info__interaction-count">{videoInfoObj.likes}</p>
+                        <img
+                            src="../../src/assets/icons/likes.svg"
+                            alt="likes-icon"
+                            className="video-info__interaction-count-icon" />
+                        <p className="video-info__interaction-count">{videoInfoObj.likes}</p>
                     </span>
                 </div>
             </div>
