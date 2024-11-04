@@ -17,10 +17,12 @@
         border-bottom: 0.0625rem solid $silver;
 
         @include tablet-screen {
-            width: 59vw;
             border-top: 0;
             justify-content: space-between;
             gap: 0;
+            @include desktop-screen {
+                width: 59vw;
+            }
         }
     }
 
@@ -49,7 +51,8 @@
     }
 
     &__description {
-        @include tablet-screen {
+        width: 95vw;
+        @include desktop-screen {
             width: 59vw;
         }
     }

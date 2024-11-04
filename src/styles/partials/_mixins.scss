@@ -16,6 +16,7 @@
 
 // Fonts
 @mixin black-bold-font {
+    font-family: "Avenir Next Bold";
     color: $brainflix-dark-black;
     font-weight: 700;
 }
@@ -37,7 +38,8 @@
 }
 
 @mixin section-header-font {
-    @include black-bold-font;
+    @include black-regular-font;
+    font-weight: 700;
     color: $silver;
     font-size: 0.75rem;
     line-height: 1.25rem;
@@ -91,7 +93,7 @@
     border-radius: 0.25rem;
     border: none;
     height: 2.5rem;
-    width: 100%;
+    width: 95%;
     margin: 1rem 0;
     background-color: $brainflix-blue;
 

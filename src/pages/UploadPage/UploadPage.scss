@@ -2,3 +2,18 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
+.upload {
+    @include flex-column;
+    border-top: 1px solid $mercury;
+    &__heading {
+        @include page-header-font;
+    }
+    &__video-title-label,
+    &__video-description-label,
+    &__thumbnail-label {
+        @include section-header-font;
+    }
+    &__button{
+        @include cta-button-style;
+    }
+}

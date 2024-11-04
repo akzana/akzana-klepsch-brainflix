@@ -9,7 +9,7 @@ export default function CommentForm() {
                 className="comment-form__form">
                 <div className='comment-form__container'>
                     <img
-                        src="src\assets\images\Mohan-muruge.jpg"
+                        src="../../assets/images/Mohan-muruge.jpg"
                         alt="Mohan Muruge side profile"
                         className="comment-form__user-img" />
                     <label htmlFor="comment-form__user-input" className="comment-form__input-label">JOIN THE CONVERSATION

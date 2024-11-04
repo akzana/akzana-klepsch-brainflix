@@ -9,15 +9,12 @@ import CommentSection from '../../components/CommentSection/CommentSection';
 import VideoList from '../../components/VideoList/VideoList';
 
 export default function VideoDetailsPage() {
-    // console.log("videoDetails: ", videoDetails);
 
     const { videoId } = useParams();
 
     const [videoDetails, setVideoDetails] = useState([]);
     const [onScreenVideo, setOnScreenVideo] = useState(null);
 
-    console.log("VideoDetailsPage Response", videoDetails);
-    
     const getVideoById = async () => {
         try {
             const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoId}?api_key=${import.meta.env.API_KEY}`);
@@ -33,72 +30,29 @@ export default function VideoDetailsPage() {
     };
 
     async function defaultVideo() {
-        try{
+        try {
             const videoList = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${import.meta.env.API_KEY}`)
             console.log(videoList.data);
             setVideoDetails(videoList.data.slice(1))
-            
+
             const defaultVid = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoList.data[0].id}?api_key=${import.meta.env.API_KEY}`)
 
             setOnScreenVideo(defaultVid.data)
         }
-        catch(error){console.error("Error fetching default video")};
+        catch (error) { console.error("Error fetching default video") };
     }
 
     useEffect(() => {
         videoId ? getVideoById() : defaultVideo();
         console.log("checking useeffect");
-        
-        return() => {
+
+        return () => {
             setOnScreenVideo(null);
             setVideoDetails([]);
         };
     }, [videoId]);
-    // async function getVideoDetails() {
-    //     try {
-    //         const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${import.meta.env.API_KEY}`);
-    //         setVideoDetails(response.data);
-    //     } catch (error) {
-    //         console.error("Error fetching video", error)
-    //     }
-    // }
-    // useEffect(() => {
-    //     getVideoDetails();
-    // }, []);
 
-
-
-    // console.log("from params: ", videoId);
-
-
-    console.log("onScreenVideo: ", onScreenVideo);
-
-
-    // const handleSelectVideo = (clickedVideoID => {
-    //     const selectVideo = videoDetails.find((video) => clickedVideoID === video.id);
-    //     setOnScreenVideo(selectVideo);
-    //     console.log(onScreenVideo)
-    // })
-
-
-
-    // useEffect(() => {
-    //     getVideoById(videoId);
-    // }, [videoId])
-
-    const handleSelectVideo = (clickedVideoID => {
-        // const selectVideo = onScreenVideo.find((video) => clickedVideoID === video.id);
-        // setOnScreenVideo(selectVideo);
-
-        console.log("From handleSelectVideo: ", onScreenVideo)
-    })
-
-
-
-    // const filterVideoList = videoDetails.filter((video) => video.id !== onScreenVideo.id);
-    // console.log(filterVideoList);
-
-    if(!onScreenVideo){return(null)};
+    if (!onScreenVideo) { return (null) };
 
     return (
         <div>
@@ -120,9 +74,7 @@ export default function VideoDetailsPage() {
                 </div>
 
                 <VideoList
-                    filterVideoList={videoDetails}
-                    // handleSelectVideo={handleSelectVideo} 
-                    />
+                    filterVideoList={videoDetails} />
             </div>
         </div>
     )

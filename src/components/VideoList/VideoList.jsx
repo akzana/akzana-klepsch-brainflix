@@ -10,19 +10,16 @@ export default function VideoList({ filterVideoList }) {
             <ul className="video-list">
                 <h3 className="video-list__heading">NEXT VIDEOS</h3>
                 {filterVideoList.map((video) =>
-                <Link to={`/videos/${video.id}`} key={video.id}>
-                    <VideoCard
-                        
-                        id={video.id}
-                        img={video.image}
-                        title={video.title}
-                        channel={video.channel}
-                        // handleSelectVideo={handleSelectVideo}
-                    />
+                    <Link to={`/videos/${video.id}`} key={video.id}>
+                        <VideoCard
+                            id={video.id}
+                            img={video.image}
+                            title={video.title}
+                            channel={video.channel}
+                        />
                     </Link>
                 )}
             </ul>
-            
         </div>
     )
 }
