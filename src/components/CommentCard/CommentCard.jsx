@@ -5,10 +5,7 @@ export default function CommentCard({ time, name, comment }) {
     return (
         <div>
             <li className="comment">
-                <img
-                    src=""
-                    alt="user image"
-                    onerror="this.style.display='none'"
+                <div
                     className='comment__img comment__img--default' />
                 <div className="comment__container">
                     <div className="comment__channel-info">

@@ -17,11 +17,11 @@ export default function VideoDetailsPage() {
 
     const getVideoById = async () => {
         try {
-            const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoId}?api_key=${import.meta.env.API_KEY}`);
+            const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoId}?api_key=${import.meta.env.VITE_API_KEY}`);
             setOnScreenVideo(response.data);
             console.log("From axios response:", response.data);
 
-            const nextVideos = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${import.meta.env.API_KEY}`)
+            const nextVideos = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${import.meta.env.VITE_API_KEY}`)
             setVideoDetails(nextVideos.data.filter((video) => video.id !== videoId));
 
         } catch (error) {
