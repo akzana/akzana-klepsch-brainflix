@@ -1,6 +1,8 @@
 import React from 'react';
 import "./Header.scss";
 import { Link } from 'react-router-dom';
+import logoBrainflix from "../../assets/logo/Brainflix-logo.svg";
+import userProfilePic from "../../assets/images/Mohan-muruge.jpg";
 
 export default function Header() {
     return (
@@ -8,7 +10,7 @@ export default function Header() {
             <div className="heading">
                 <Link to="/">
                     <img
-                        src="../../src/assets/logo/BrainFlix-logo.svg"
+                        src={logoBrainflix}
                         alt="brainflix-logo"
                         className="heading__brainflix-icon" />
                 </Link>
@@ -27,7 +29,7 @@ export default function Header() {
                             to="/upload"
                             className="header-form__button header-form__button--tablet">UPLOAD</Link>
                         <img
-                            src="../../src/assets/images/Mohan-muruge.jpg"
+                            src={userProfilePic}
                             alt="Mohan Muruge side profile"
                             className="header-form__user-img" />
                     </div>

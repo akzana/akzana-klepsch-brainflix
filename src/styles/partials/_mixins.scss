@@ -129,12 +129,12 @@
 
 @mixin avatar-style {
     border-radius: 50%;
-    min-width: 2.25rem;
+    width: 2.25rem;
     height: 2.25rem;
     object-fit: cover;
 
     @include tablet-screen {
-        min-width: 2.5rem;
+        width: 2.5rem;
         height: 2.5rem;
     }
 

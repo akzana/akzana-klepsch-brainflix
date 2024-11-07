@@ -1,5 +1,7 @@
 import React from 'react';
 import "./VideoInfo.scss";
+import viewsIcon from "../../assets/icons/views.svg";
+import likesIcon from "../../assets/icons/likes.svg";
 
 export default function VideoInfo({ videoInfoObj }) {
 
@@ -15,14 +17,14 @@ export default function VideoInfo({ videoInfoObj }) {
                 <div className="video-info__interaction-info">
                     <span>
                         <img
-                            src="../../src/assets/icons/views.svg"
+                            src={viewsIcon}
                             alt="views-icon"
                             className="video-info__interaction-count-icon" />
                         <p className="video-info__interaction-count">{videoInfoObj.views}</p>
                     </span>
                     <span>
                         <img
-                            src="../../src/assets/icons/likes.svg"
+                            src={likesIcon}
                             alt="likes-icon"
                             className="video-info__interaction-count-icon" />
                         <p className="video-info__interaction-count">{videoInfoObj.likes}</p>

@@ -1,5 +1,6 @@
 import React from 'react';
 import "./CommentForm.scss";
+import userProfilePic from "../../assets/images/Mohan-muruge.jpg";
 
 export default function CommentForm() {
     return (
@@ -9,7 +10,7 @@ export default function CommentForm() {
                 className="comment-form__form">
                 <div className='comment-form__container'>
                     <img
-                        src="../src/assets/images/Mohan-muruge.jpg"
+                        src={userProfilePic}
                         alt="Mohan Muruge side profile"
                         className="comment-form__user-img" />
                     <label
