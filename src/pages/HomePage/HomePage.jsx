@@ -10,43 +10,51 @@ import VideoList from '../../components/VideoList/VideoList';
 
 export default function HomePage() {
     const { videoId } = useParams();
+    const API_KEY = import.meta.env.VITE_API_KEY
+    const [videosDetails, setVideosDetails] = useState([]); // videos
+    const [onScreenVideo, setOnScreenVideo] = useState(null); //selectedVideo
 
-    const [videosDetails, setVideosDetails] = useState([]);
-    const [onScreenVideo, setOnScreenVideo] = useState(null);
-
-    const getVideoById = async () => {
+    const getVideos = async () => {
         try {
-            const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoId}?api_key=${import.meta.env.VITE_API_KEY}`);
+            const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${API_KEY}`);
+            if (videoId) {
+                getVideoById(videoId);
+            } else {
+                getVideoById(response.data[0].id);
+            }
+        } catch (err) {
+            console.error("error fetching video", err)
+        }
+    };
+
+    const getVideoById = async (id) => {
+        try {
+            const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}?api_key=${API_KEY}`);
             setOnScreenVideo(response.data);
 
-            const nextVideos = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${import.meta.env.VITE_API_KEY}`)
-            setVideosDetails(nextVideos.data.filter((video) => video.id !== videoId));
-
+            const upNextVideos = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${API_KEY}`)
+            setVideosDetails(upNextVideos.data.filter((video) => video.id !== videoId));
         } catch (error) {
             console.error("Error fetching video by ID", error)
         }
     };
 
-    async function defaultVideo() {
-        try {
-            const videoList = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${import.meta.env.API_KEY}`)
-            setVideosDetails(videoList.data.slice(1))
-
-            const defaultVid = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoList.data[0].id}?api_key=${import.meta.env.API_KEY}`)
-
-            setOnScreenVideo(defaultVid.data)
-        }
-        catch (error) { console.error("Error fetching default video") };
-    }
-
     useEffect(() => {
-        videoId ? getVideoById() : defaultVideo();
+        getVideos();
 
-        return () => {
-            setOnScreenVideo(null);
-            setVideosDetails([]);
-        };
-    }, [videoId]);
+    }, []);
+
+    useEffect(
+        () => {
+            videoId ? getVideoById(videoId) : getVideos();
+
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+            });
+
+        }, [videoId]);
 
     if (!onScreenVideo) { return (null) };
 
