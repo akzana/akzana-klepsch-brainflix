@@ -11,8 +11,8 @@ import VideoList from '../../components/VideoList/VideoList';
 export default function HomePage() {
     const { videoId } = useParams();
     const API_KEY = import.meta.env.VITE_API_KEY
-    const [videosDetails, setVideosDetails] = useState([]); // videos
-    const [onScreenVideo, setOnScreenVideo] = useState(null); //selectedVideo
+    const [videos, setVideos] = useState([]); 
+    const [selectedVideo, setSelectedVideo] = useState(null); //selectedVideo
 
     const getVideos = async () => {
         try {
@@ -30,10 +30,10 @@ export default function HomePage() {
     const getVideoById = async (id) => {
         try {
             const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}?api_key=${API_KEY}`);
-            setOnScreenVideo(response.data);
+            setSelectedVideo(response.data);
 
             const upNextVideos = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${API_KEY}`)
-            setVideosDetails(upNextVideos.data.filter((video) => video.id !== videoId));
+            setVideos(upNextVideos.data.filter((video) => video.id !== videoId));
         } catch (error) {
             console.error("Error fetching video by ID", error)
         }
@@ -56,26 +56,26 @@ export default function HomePage() {
 
         }, [videoId]);
 
-    if (!onScreenVideo) { return (null) };
+    if (!selectedVideo) { return (null) };
 
     return (
         <div>
             <VideoPlayer
-                videoURL={onScreenVideo.video}
-                poster={onScreenVideo.image} />
+                videoURL={selectedVideo.video}
+                poster={selectedVideo.image} />
 
             <div className="body-container">
 
                 <div className="body-container__inner">
 
-                    <VideoInfo videoInfoObj={onScreenVideo} />
+                    <VideoInfo videoInfoObj={selectedVideo} />
 
                     <CommentForm />
 
-                    <CommentSection commentArray={onScreenVideo.comments} />
+                    <CommentSection commentArray={selectedVideo.comments} />
                 </div>
 
-                <VideoList filterVideoList={videosDetails} />
+                <VideoList filterVideoList={videos} />
             </div>
         </div>
     )
