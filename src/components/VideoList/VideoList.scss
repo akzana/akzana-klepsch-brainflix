@@ -2,9 +2,27 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.video-list-item{
+.video-list-item {
+    @include flex-row;
     list-style: none;
-    &__img{
-        width: 100px;
+    @include desktop-screen {
+        padding-left: 2rem;
+        border-left: 0.0625rem solid $mercury;
+    }
+
+    &__img {
+        height: 6.25rem;
+        border-radius: 0.25rem;
+    }
+
+    &__video-title {
+        font-weight: bold;
+    }
+
+    &__video-channel {
+        font-weight: light;
+    }
+    &__video-info {
+        margin: 0 0 3rem 1rem;
     }
 }

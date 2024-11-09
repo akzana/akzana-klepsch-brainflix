@@ -3,17 +3,58 @@
 @use "../../styles/partials/typography" as *;
 
 .video-info {
-    margin: 0 1rem;    
-    &__heading{
+    margin: 0 1rem;
+
+    &__heading {
         @include page-header-font;
-        border-bottom: 0.0625rem solid $silver;
     }
+
     &__container {
         @include flex-row;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 30%;
+        border-top: 0.0625rem solid $silver;
+        border-bottom: 0.0625rem solid $silver;
+
+        @include tablet-screen {
+            border-top: 0;
+            justify-content: space-between;
+            gap: 0;
+            @include desktop-screen {
+                width: 59vw;
+            }
+        }
     }
-    &__interaction-count-icon{
+
+    &__channel,
+    &__comment-count {
+        font-weight: bolder;
+    }
+
+    &__channel-info,
+    &__interaction-info {
+        @include flex-column;
+
+        @include tablet-screen {
+            @include flex-row;
+            gap: 2rem;
+        }
+    }
+
+    &__interaction-count,
+    &__post-date {
+        color: $silver;
+    }
+
+    &__interaction-count-icon {
         margin-right: 1rem;
+    }
+
+    &__description {
+        width: 95vw;
+        @include desktop-screen {
+            width: 59vw;
+        }
     }
 }
 

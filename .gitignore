@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
 
 # Editor directories and files
 .vscode/*
@@ -23,3 +24,4 @@ dist-ssr
 *.sln
 *.sw?
 /1. BrainFlix-Sprint-1
+/BrainFlix-Package-Sprint-2

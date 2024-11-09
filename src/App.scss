@@ -3,12 +3,18 @@
 @use "/src/styles/partials/typography" as *;
 
 body {
+    @include flex-column;
     font-family: "Avenir Next Regular";
     @include body-copy-font;
+    margin: 0;
 }
 
 li {
     list-style: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 h3 {

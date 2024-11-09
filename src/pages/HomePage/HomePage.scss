@@ -2,11 +2,13 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.comment-section {
-    @include flex-column;
+.body-container {
+    @include desktop-screen {
+        @include flex-row;
 
-    &__list {
-        padding: 0;
-        width: 95vw;
+        &__inner {
+            width: 60vw;
+
+        }
     }
 }

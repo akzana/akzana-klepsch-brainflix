@@ -3,6 +3,11 @@
 @use "../../styles/partials/typography" as *;
 
 .header {
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+
     @include tablet-screen {
         @include flex-row;
         justify-content: space-between;
@@ -26,9 +31,19 @@
     justify-content: center;
     width: 95vw;
 
+    @include tablet-screen {
+        justify-content: flex-end;
+    }
+
+    &__form {
+        @include flex-column;
+
+    }
 
     &__container {
         @include flex-row;
+        justify-content: flex-end;
+        align-items: center;
 
         @include tablet-screen {
             align-items: center;
@@ -37,16 +52,21 @@
 
     &__search-bar {
         @include form-field-style;
+        width: 95%;
         background: url("/src/assets/icons/search.svg") no-repeat scroll 0.4375rem;
         padding-left: 1.875rem;
     }
 
     &__user-img {
         @include avatar-style;
+        margin-left: 1rem;
     }
 
     &__button {
         @include cta-button-style;
+        @include flex-row;
+        justify-content: center;
+        align-items: center;
         background: url("/src/assets/icons/upload.svg") no-repeat scroll 0.4375rem $brainflix-blue;
         width: 95vw;
 
@@ -65,7 +85,7 @@
                 @include cta-button-style;
                 background: url("/src/assets/icons/upload.svg") no-repeat scroll 0.4375rem $brainflix-blue;
                 width: 9.375rem;
-                padding: 0 2rem;
+                margin: 0 2rem;
             }
         }
     }
