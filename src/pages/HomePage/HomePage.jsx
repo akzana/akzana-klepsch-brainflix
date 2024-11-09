@@ -10,13 +10,14 @@ import VideoList from '../../components/VideoList/VideoList';
 
 export default function HomePage() {
     const { videoId } = useParams();
-    const API_KEY = import.meta.env.VITE_API_KEY
-    const [videos, setVideos] = useState([]); 
-    const [selectedVideo, setSelectedVideo] = useState(null); //selectedVideo
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const apiKey = import.meta.env.VITE_API_KEY;
+    const [videos, setVideos] = useState([]);
+    const [selectedVideo, setSelectedVideo] = useState(null);
 
     const getVideos = async () => {
         try {
-            const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${API_KEY}`);
+            const response = await axios.get(`${baseUrl}/videos?api_key=${apiKey}`);
             if (videoId) {
                 getVideoById(videoId);
             } else {
@@ -29,10 +30,10 @@ export default function HomePage() {
 
     const getVideoById = async (id) => {
         try {
-            const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}?api_key=${API_KEY}`);
+            const response = await axios.get(`${baseUrl}/videos/${id}?api_key=${apiKey}`);
             setSelectedVideo(response.data);
 
-            const upNextVideos = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${API_KEY}`)
+            const upNextVideos = await axios.get(`${baseUrl}/videos?api_key=${apiKey}`)
             setVideos(upNextVideos.data.filter((video) => video.id !== videoId));
         } catch (error) {
             console.error("Error fetching video by ID", error)
@@ -41,7 +42,6 @@ export default function HomePage() {
 
     useEffect(() => {
         getVideos();
-
     }, []);
 
     useEffect(
@@ -53,7 +53,6 @@ export default function HomePage() {
                 left: 0,
                 behavior: "smooth",
             });
-
         }, [videoId]);
 
     if (!selectedVideo) { return (null) };
